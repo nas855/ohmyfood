@@ -2,17 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 @import "./utils/variables";
 
-body {
-    font-family:'Roboto', sans-serif;
-    margin:auto;
+::-webkit-scrollbar{
+    width: 100%;
 }
 
-header {
-    margin: 20px 0 0 20px;
+
+
+
+htlm,body {
+    font-family:'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin:auto;
+    
 }
+
+.logo{
+    width: 30%;
+}
+
  
 .geolocalisation {
-   
   display:flex;
   justify-content: center;
   background-color: #8080804d;
@@ -20,7 +29,6 @@ header {
   padding: 15px;
   >.marge{
      margin-right: 10px;
-
   }
 }
 
@@ -30,14 +38,13 @@ header {
     padding: 30px;
 }
 
-
-
 .texteengras{
     font-weight: bold;
-    font-size: 25px;    
+    font-size: 25px;
+    margin-left: 20px;    
 }
 
-.coleurtextegris {
+.coleur_gris {
     color: grey;
 }
 
@@ -45,11 +52,48 @@ header {
 
 .btn
 {
-    background: linear-gradient(to top, $couleur-secondaire, $couleur-primaire);
     color: $couleur-accentuation;
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 5px 5px 5px #c8c4c4d4;
-    
-    
+    box-shadow: 5px 5px 5px #c8c4c4d4; 
+    background: linear-gradient(to bottom, $couleur-secondaire, $couleur-primaire);
+    &:hover {
+        background: linear-gradient(to bottom, lighten($couleur-secondaire, 5%), lighten($couleur-primaire, 5%)) darken(#c8c4c4d4,90%);
+        box-shadow: 5px 5px 5px darken(#c8c4c4d4,30%);
+    } 
 }
+
+.espace{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+ .bulle{
+    margin-left: 10px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px #80808029;
+    position: absolute;
+    width: 30%;
+ }
+.alignement_bulle{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+.cercle{
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background: #9356DC;
+    text-align: center;
+}
+
+.alignement{
+    display: flex;
+    flex-direction: column;
+}
+
