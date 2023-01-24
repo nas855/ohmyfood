@@ -35,7 +35,7 @@ htlm, body {
   margin-left: 20px;
 }
 
-.coleur_gris {
+.couleur_gris {
   color: grey;
 }
 
@@ -44,12 +44,12 @@ htlm, body {
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px rgba(200, 196, 196, 0.831372549);
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.1607843137);
   background: linear-gradient(to bottom, #FF79DA, #9356DC);
 }
 .btn:hover {
-  background: linear-gradient(to bottom, #ff93e1, #a16be0) rgba(0, 0, 0, 0.831372549);
-  box-shadow: 5px 5px 5px rgba(126, 117, 117, 0.831372549);
+  background: linear-gradient(to bottom, #fface8, #ae80e5) rgba(0, 0, 0, 0.1607843137);
+  box-shadow: 5px 5px 5px rgba(52, 52, 52, 0.1607843137);
 }
 
 .espace {
@@ -57,6 +57,7 @@ htlm, body {
   margin-left: 10px;
 }
 
+/* fonctionnement*/
 .bulle {
   margin-left: 10px;
   border: 1px solid transparent;
@@ -65,6 +66,16 @@ htlm, body {
   box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.1607843137);
   position: absolute;
   width: 30%;
+  background-color: white;
+  z-index: 0;
+}
+.bulle:hover {
+  background-color: rgba(174, 128, 229, 0.2196078431);
+  box-shadow: 5px 5px 5px rgba(52, 52, 52, 0.1607843137);
+}
+
+.bulle:hover .couleur_gris {
+  color: #9356DC;
 }
 
 .alignement_bulle {
@@ -72,6 +83,7 @@ htlm, body {
   align-items: center;
   margin-bottom: 50px;
   margin-left: 30px;
+  z-index: 0;
 }
 
 .cercle {
@@ -80,9 +92,11 @@ htlm, body {
   border-radius: 20px;
   background: #9356DC;
   text-align: center;
+  z-index: 1;
 }
 
 .alignement {
   display: flex;
   flex-direction: column;
+  z-index: 0;
 }/*# sourceMappingURL=style.css.map */

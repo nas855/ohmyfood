@@ -1,0 +1,25 @@
+@mixin degrade_ombre {box-shadow: 5px 5px 5px darken($couleur-ombre,30%);}
+@mixin degrade_couleur {background: linear-gradient(to bottom, lighten($couleur-secondaire, 10%), lighten($couleur-primaire, 10%))darken($couleur-ombre,90%);}
+@mixin degrade{
+    background: linear-gradient(to bottom, lighten($couleur-secondaire, 10%), lighten($couleur-primaire, 10%))darken($couleur-ombre,90%);
+    box-shadow: 5px 5px 5px darken($couleur-ombre,30%);
+}
+
+@mixin hover {
+    &:hover {
+        
+        @include degrade;
+    } 
+}
+
+@mixin ecran-portable {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        grid-template-columns: 1fr;
+    }
+  }
+
+  @mixin ecran-mobile {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+  }
