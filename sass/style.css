@@ -6,11 +6,26 @@
 htlm, body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-  margin: auto;
+  margin: 0;
+}
+
+.header {
+  margin: 10px;
+}
+@media screen and (max-width: 760px) {
+  .header {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .logo {
   width: 30%;
+}
+@media screen and (max-width: 760px) {
+  .logo {
+    width: 50%;
+  }
 }
 
 .geolocalisation {
@@ -24,15 +39,44 @@ htlm, body {
   margin-right: 10px;
 }
 
-.conteneur {
+.accroche {
   background-color: rgba(128, 128, 128, 0.0509803922);
-  padding: 30px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.texteengras {
+.conteneur {
+  background-color: rgba(128, 128, 128, 0.0509803922);
+}
+
+.titre {
   font-weight: bold;
   font-size: 25px;
   margin-left: 20px;
+  padding-top: 30px;
+}
+
+.slogan {
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 20px;
+}
+@media screen and (max-width: 760px) {
+  .slogan {
+    text-align: center;
+  }
+}
+
+.description {
+  font-weight: 300;
+}
+@media screen and (max-width: 760px) {
+  .description {
+    text-align: center;
+  }
 }
 
 .couleur_gris {
@@ -43,7 +87,7 @@ htlm, body {
 .btn {
   color: #fff;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.1607843137);
   background: linear-gradient(to bottom, #FF79DA, #9356DC);
 }
@@ -52,51 +96,257 @@ htlm, body {
   box-shadow: 5px 5px 5px rgba(52, 52, 52, 0.1607843137);
 }
 
-.espace {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
 /* fonctionnement*/
-.bulle {
-  margin-left: 10px;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  padding: 15px;
-  box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.1607843137);
-  position: absolute;
-  width: 30%;
-  background-color: white;
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   z-index: 0;
 }
-.bulle:hover {
-  background-color: rgba(174, 128, 229, 0.2196078431);
-  box-shadow: 5px 5px 5px rgba(52, 52, 52, 0.1607843137);
+@media screen and (max-width: 760px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.bulle:hover .couleur_gris {
-  color: #9356DC;
-}
-
-.alignement_bulle {
+.filtre {
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
-  margin-left: 30px;
+  margin-bottom: 20px;
   z-index: 0;
+  width: 35%;
 }
-
-.cercle {
+@media screen and (max-width: 760px) {
+  .filtre {
+    width: 90%;
+  }
+}
+.filtre_cercle {
   height: 20px;
   width: 20px;
   border-radius: 20px;
   background: #9356DC;
   text-align: center;
   z-index: 1;
+  position: absolute;
+}
+.filtre_icone {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: grey;
+}
+.filtre_info {
+  margin-left: 10px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.1607843137);
+  width: 100%;
+  background-color: couleur-accentuation;
+  z-index: 0;
+}
+.filtre_info:hover {
+  background-color: rgba(174, 128, 229, 0.2196078431);
+  box-shadow: 5px 5px 5px rgba(52, 52, 52, 0.1607843137);
+}
+.filtre_info:hover .filtre_icone {
+  color: #9356DC;
 }
 
-.alignement {
+/*section*/
+/*les cartes, les images, le descriptif*/
+.conteneur_images {
   display: flex;
-  flex-direction: column;
-  z-index: 0;
+  justify-content: space-around;
+}
+@media screen and (max-width: 760px) {
+  .conteneur_images {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.conteneur_images .descriptif_image {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+@media screen and (max-width: 760px) {
+  .conteneur_images .descriptif_image {
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+}
+.conteneur_images .nom_ville {
+  font-weight: 200;
+}
+.conteneur_images .taille {
+  font-size: 25px;
+}
+
+/* creation de la carte,liens sur la carte, remplissage icone coeur*/
+.carte {
+  background-color: #fff;
+  width: 20%;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.1607843137);
+  border-radius: 15px 15px 15px 15px;
+}
+@media screen and (max-width: 760px) {
+  .carte {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+.carte_lien {
+  text-decoration: none;
+  color: black;
+}
+.carte_lien:hover .coeur_vide {
+  display: none;
+}
+@media screen and (max-width: 760px) {
+  .carte_lien:hover .coeur_vide {
+    display: block;
+  }
+}
+.carte_lien:hover .coeur_plein {
+  opacity: 100%;
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+@media screen and (max-width: 760px) {
+  .carte_lien:hover .coeur_plein {
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 760px) {
+  .carte_lien:active .coeur_vide {
+    display: none;
+  }
+  .carte_lien:active .coeur_plein {
+    opacity: 100%;
+    background: linear-gradient(to bottom, #FF79DA, #9356DC);
+    color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+  }
+}
+.carte .coeur_plein {
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 2s;
+  transform: scale(1.2);
+}
+.carte .coeur_vide {
+  position: absolute;
+  color: black;
+}
+.carte .image {
+  height: 180px;
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/*icone nouveau*/
+.position {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+.position_nouveau {
+  position: absolute;
+  background-color: #99cccc;
+  color: #009966;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+/*footer*/
+.fond_footer {
+  background-color: rgba(0, 0, 0, 0.768627451);
+  color: #fff;
+  padding-bottom: 20px;
+}
+.fond_footer .marge {
+  margin-left: 25px;
+}
+.fond_footer .logo_footer {
+  margin-top: 20px;
+}
+@media screen and (max-width: 760px) {
+  .fond_footer .logo_footer {
+    width: 30%;
+  }
+}
+
+/*chargement*/
+.chargement {
+  width: 148px;
+  height: 148px;
+  border: 5px solid #9356DC;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  -webkit-animation: rotation 3s linear both;
+          animation: rotation 3s linear both;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+  -webkit-animation: blanc 3s linear;
+          animation: blanc 3s linear;
+}
+
+@-webkit-keyframes blanc {
+  0% {
+    color: white;
+    background-color: white;
+  }
+  100% {
+    color: white;
+    background-color: white;
+  }
+}
+
+@keyframes blanc {
+  0% {
+    color: white;
+    background-color: white;
+  }
+  100% {
+    color: white;
+    background-color: white;
+  }
+}
+.test {
+  position: fixed;
+  inset: 0;
+  background-color: green;
+  z-index: 2;
 }/*# sourceMappingURL=style.css.map */

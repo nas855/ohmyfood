@@ -1,8 +1,11 @@
+
 $couleur-primaire:#9356DC;
 $couleur-secondaire:#FF79DA;
 $couleur-tertiaire:#99E2D0;
 $couleur-accentuation: #fff;
 $couleur-degradé:linear-gradient(to bottom, $couleur-secondaire, $couleur-primaire);
 $couleur-ombre:#80808029;
+$couleur-icone:#8080804d;
+$couleur-footer:#000000c4;
 
-$ecran-portable: only screen and (min-width:768px);
+$breakpoints: (mobile:760px);

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 @import "./utils/variables";
 @import "./utils/mixins";
@@ -13,38 +12,69 @@
 htlm,body {
     font-family:'Roboto', sans-serif;
     box-sizing: border-box;
-    margin:auto;
+    margin:0;  
+}
+
+
+    .header {
+        
+        margin: 10px;
+        @include ecran-mobile {
+            display: flex;
+            justify-content: center;
+        }   
+    }
+
+    .logo {
+        width: 30%;
+        @include ecran-mobile {
+        width: 50%;
+        }
+     }
     
-}
-
-.logo{
-    width: 30%;
-}
-
  
 .geolocalisation {
   display:flex;
   justify-content: center;
-  background-color: #8080804d;
+  background-color: $couleur-icone;
   border-radius:5px;
   padding: 15px;
   >.marge{
      margin-right: 10px;
   }
 }
-
+.accroche{
+    background-color: #8080800d;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 .conteneur {
     background-color: #8080800d;
-    padding: 30px;
 }
 
-.texteengras{
+.titre{
     font-weight: bold;
     font-size: 25px;
-    margin-left: 20px;    
+    margin-left: 20px;
+    padding-top: 30px;    
 }
 
+.slogan{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 20px;
+    @include ecran-mobile{
+        text-align: center;} 
+}
+.description {
+    font-weight: 300;
+    @include ecran-mobile{
+        text-align: center;} 
+}
 .couleur_gris {
     color: grey;
     
@@ -56,62 +86,259 @@ htlm,body {
 {
     color: $couleur-accentuation;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 5px 5px 5px $couleur-ombre; 
     background: $couleur-degradé;
     @include hover
     
 }
 
-.espace{
-    margin-right: 10px;
-    margin-left: 10px;
-}
 
 /* fonctionnement*/
 
- .bulle {
-    margin-left: 10px;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 2px 2px 2px 2px $couleur-ombre;
-    position: absolute;
-    width: 30%;
-    background-color: white;
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     z-index: 0;
-    &:hover {
-        background-color:  #ae80e538;
-        @include degrade_ombre
+    @include ecran-mobile{
+        flex-direction: column;
+        align-items: center;
+    } 
+}
+
+
+    .filtre{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        z-index: 0;
+        width: 35%;
+        @include ecran-mobile{
+            width: 90%;
+        } 
+        &_cercle{
+            height: 20px;
+            width: 20px;
+            border-radius: 20px;
+            background: $couleur-primaire;
+            text-align: center;
+            z-index: 1;
+            position: absolute;
+        }
+        &_icone{
+            padding-left: 10px;
+            padding-right: 10px;
+            color: grey;
+        }
+        &_info {
+            margin-left: 10px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 2px 2px 2px 2px $couleur-ombre;
+            
+            width: 100%;
+            background-color:couleur-accentuation;
+            z-index: 0;
+            &:hover {
+                background-color:#ae80e538;
+                @include degrade_ombre
+            }
+            &:hover .filtre_icone{
+                color:$couleur-primaire;
+            }    
+        }
+    }
+
+
+    
+
+/*section*/
+
+/*les cartes, les images, le descriptif*/
+.conteneur_images{
+    display: flex;
+    justify-content: space-around;
+    @include ecran-mobile{
+        flex-direction: column;
+        align-items: center;
+        
+    } 
+    .descriptif_image {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        @include ecran-mobile{
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-right: 20px; 
+        } 
+    }
+
+    .nom_ville {
+        font-weight: 200;  
+    }
+        
+    .taille{
+       font-size: 25px;
+       
+    }
+}
+
+
+/* creation de la carte,liens sur la carte, remplissage icone coeur*/
+.carte {
+    background-color: $couleur-accentuation;
+    width: 20%;
+    box-shadow: 5px 5px 5px $couleur-ombre; 
+    border-radius: 15px 15px 15px 15px;
+    @include ecran-mobile{
+        width: 90%;
+        margin-bottom: 20px;
+    } 
+    &_lien{
+        text-decoration: none;
+        color: black;
+        &:hover .coeur_vide  {
+            display: none;
+            @include ecran-mobile{
+                display: block;  
+            }
+            
+        }
+        &:hover .coeur_plein {
+            opacity:100%;
+            background: $couleur-degradé;
+            color:transparent;
+            background-clip: text;
+            @include ecran-mobile{
+                opacity: 0;
+                
+            }     
+        }
+        @include ecran-mobile{
+            &:active .coeur_vide  {
+                display: none;
+                
+            }
+            &:active .coeur_plein {
+                opacity:100%;
+                background: $couleur-degradé;
+                color:transparent;
+                background-clip: text;  
+            }
+        }     
+
+        
+    }
+
+    .coeur_plein {
+        opacity:0;
+        transition-property:all;
+        transition-duration:2s;
+        transform: scale(1.2); 
+    }
+      
+  .coeur_vide {
+    position:absolute;
+    color:black;
+  }
+    .image {
+        height:180px;
+        width: 100%;
+        border-radius: 15px 15px 0px 0px;
+        object-fit: cover;   
+    }
+}
+
+
+
+.bold{
+    font-weight: bold;
+}
+
+
+  /*icone nouveau*/
+
+.position {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    &_nouveau{
+        position: absolute;
+        background-color: #99cccc;
+        color: #009966;
+        padding: 5px;
+        margin-right: 10px;
+    }  
+}
+  
+  
+/*footer*/
+
+.fond_footer {
+    background-color: $couleur-footer;
+    color: $couleur-accentuation;
+    padding-bottom: 20px;
+    .marge { 
+        margin-left: 25px;
+    }
+    .logo_footer{
+        margin-top: 20px;
+        @include ecran-mobile {
+            width: 30%;
+            }
     }
  }
 
- .bulle:hover .couleur_gris{
-    color:$couleur-primaire;
- }
+ /*chargement*/
 
-.alignement_bulle{
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
-    margin-left: 30px;
-    z-index: 0;
-}
+ .chargement {
+    width: 148px;
+    height: 148px;
+    border: 5px solid #9356DC;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    
+    animation: rotation 3s linear both ;
+    }
 
-.cercle{
-    height: 20px;
-    width: 20px;
-    border-radius: 20px;
-    background: $couleur-primaire;
-    text-align: center;
-    z-index: 1;
-}
-
-
-.alignement{
-    display: flex;
-    flex-direction: column;
-    z-index: 0;
-}
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+       
+    }
+    100% {
+        transform: rotate(360deg);
+        
+    }
+    } 
 
 
+    body {animation: blanc 3s linear;}
+
+
+    @keyframes blanc {
+        0% {
+            color: white;
+            background-color: white;
+           
+        }
+        100% {
+           color: white;
+           background-color:white ;
+            
+        }
+        } 
+
+        .test{
+            position: fixed;
+            inset:0;
+            background-color: green;
+            z-index: 2;
+
+        }
