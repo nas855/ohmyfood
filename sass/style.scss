@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
 @import "./utils/variables";
 @import "./utils/mixins";
 
@@ -54,6 +56,7 @@ htlm,body {
 
 .conteneur {
     background-color: #8080800d;
+    padding-bottom: 50px;
 }
 
 .titre{
@@ -92,6 +95,12 @@ htlm,body {
     @include hover
     
 }
+
+
+
+
+
+
 
 
 /* fonctionnement*/
@@ -282,63 +291,52 @@ htlm,body {
     background-color: $couleur-footer;
     color: $couleur-accentuation;
     padding-bottom: 20px;
+    padding-top: 20px;
     .marge { 
         margin-left: 25px;
     }
     .logo_footer{
-        margin-top: 20px;
-        @include ecran-mobile {
-            width: 30%;
-            }
+        font-family:'Shrikhand', cursive;
+        font-size: 20px;
     }
  }
 
  /*chargement*/
 
- .chargement {
-    width: 148px;
-    height: 148px;
-    border: 5px solid #9356DC;
-    border-bottom-color: transparent;
+ #loader {
+    border: 16px solid #9356DC;
+    border-top: 16px solid #FF79DA;
     border-radius: 50%;
-    display: inline-block;
-    position: absolute;
+    width: 120px;
+    height: 120px;
+    animation: spin 3s linear infinite forwards;
     
-    animation: rotation 3s linear both ;
-    }
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 9999;
+    animation: disparition 3s forwards 3s;
+    
+  }
+  @keyframes disparition {
+    100% { opacity: 0;
+           position: relative;
+         }
 
-    @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-       
-    }
-    100% {
-        transform: rotate(360deg);
-        
-    }
-    } 
+  }
 
-
-    body {animation: blanc 3s linear;}
-
-
-    @keyframes blanc {
-        0% {
-            color: white;
-            background-color: white;
-           
-        }
-        100% {
-           color: white;
-           background-color:white ;
-            
-        }
-        } 
-
-        .test{
-            position: fixed;
-            inset:0;
-            background-color: green;
-            z-index: 2;
-
-        }
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
