@@ -5,15 +5,37 @@
     box-shadow: 5px 5px 5px darken($couleur-ombre,30%);
 }
 
+
+/*hover pr le bouton*/
 @mixin hover {
     &:hover {
-        
         @include degrade;
     } 
 }
 
+/* mixin pour écran mobile*/
   @mixin ecran-mobile {
     @media screen and (max-width: map-get($breakpoints, mobile)){
         @content;
     }
   }
+
+  /*police*/
+
+  @mixin shrikhand {font-family:'Shrikhand', cursive;}
+  @mixin roboto {font-family:'Roboto', sans-serif;}
+
+
+  /*deplacement*/
+  @mixin centre { display:flex; justify-content: center;}
+
+
+  /*police et taille*/
+
+  @mixin police-bold {
+    font-weight: bold;
+    }
+    
+ @mixin police-size($taille) {
+    font-size: $taille;
+    }
