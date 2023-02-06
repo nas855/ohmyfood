@@ -265,6 +265,7 @@ htlm, body {
 
 .bold {
   font-weight: bold;
+  transition: all 0.8s ease-in-out;
 }
 
 /*icone nouveau*/
@@ -282,6 +283,10 @@ htlm, body {
 }
 
 /*footer*/
+.marge {
+  margin-left: 20px;
+}
+
 .fond_footer {
   background-color: rgba(0, 0, 0, 0.768627451);
   color: #fff;
@@ -294,8 +299,9 @@ htlm, body {
   font-size: 20px;
 }
 
-.marge {
-  margin-left: 20px;
+.contact {
+  text-decoration: none;
+  color: inherit;
 }
 
 /*chargement*/
@@ -305,8 +311,8 @@ htlm, body {
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 3s linear infinite forwards;
-          animation: spin 3s linear infinite forwards;
+  -webkit-animation: spin 2.5s linear forwards;
+          animation: spin 2.5s linear forwards;
 }
 
 @-webkit-keyframes spin {
@@ -315,6 +321,10 @@ htlm, body {
   }
   100% {
     transform: rotate(360deg);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
   }
 }
 
@@ -324,6 +334,10 @@ htlm, body {
   }
   100% {
     transform: rotate(360deg);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
   }
 }
 .loader-wrapper {
@@ -334,20 +348,26 @@ htlm, body {
   bottom: 0;
   background-color: white;
   z-index: 9999;
-  -webkit-animation: disparition 3s forwards 3s;
-          animation: disparition 3s forwards 3s;
+  -webkit-animation: disparition 3s linear forwards;
+          animation: disparition 3s linear forwards;
 }
 
 @-webkit-keyframes disparition {
+  0% {
+    visibility: visible;
+  }
   100% {
-    opacity: 0;
+    visibility: hidden;
     position: relative;
   }
 }
 
 @keyframes disparition {
+  0% {
+    visibility: visible;
+  }
   100% {
-    opacity: 0;
+    visibility: hidden;
     position: relative;
   }
 }
@@ -359,6 +379,28 @@ htlm, body {
 }
 
 /*menu 1*/
+@media screen and (max-width: 760px) {
+  .header_menu {
+    align-items: center;
+  }
+}
+
+.fleche_gauche {
+  display: none;
+  position: absolute;
+  left: 10px;
+}
+@media screen and (max-width: 760px) {
+  .fleche_gauche {
+    display: block;
+    margin-right: 60px;
+  }
+}
+
+.fa-arrow-left {
+  margin-left: 10px;
+}
+
 .image_menu {
   height: 200px;
   width: 100%;
@@ -381,7 +423,17 @@ htlm, body {
 }
 
 .sous_titre {
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/*surlignement sous-titre*/
+.sous_titre::after {
+  content: "";
+  display: block;
+  width: 50px;
+  border-bottom: 3px solid #99E2D0;
+  height: 5px;
 }
 
 .conteneur_menu {
@@ -389,6 +441,20 @@ htlm, body {
   border-radius: 30px 30px 0 0;
   position: relative;
   margin-top: 180px;
+}
+
+.repas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  z-index: 0;
+  position: relative;
+}
+@media screen and (max-width: 760px) {
+  .repas {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .bulle_menu {
@@ -400,10 +466,67 @@ htlm, body {
   background-color: white;
   width: 45%;
   margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.bulle_menu:hover .effet {
+  transform: translate(0px);
+}
+@media screen and (max-width: 760px) {
+  .bulle_menu:hover .effet {
+    transform: translatex(55px);
+  }
+}
+.bulle_menu:hover .fa-check {
+  transform: rotateZ(360deg);
+}
+@media screen and (max-width: 760px) {
+  .bulle_menu:hover .fa-check {
+    transform: rotateZ(80deg);
+  }
+}
+.bulle_menu:hover .bold {
+  margin-right: 40px;
+}
+@media screen and (max-width: 760px) {
+  .bulle_menu:hover .bold {
+    margin-right: 0;
+  }
+}
+.bulle_menu:hover .etc1 {
+  padding-right: 40px;
+}
+@media screen and (max-width: 760px) {
+  .bulle_menu:hover .etc1 {
+    padding-right: 0;
+  }
+}
+.bulle_menu:hover .etc2 {
+  margin-right: 40px;
+}
+@media screen and (max-width: 760px) {
+  .bulle_menu:hover .etc2 {
+    margin-right: 0;
+  }
 }
 @media screen and (max-width: 760px) {
   .bulle_menu {
     width: 90%;
+  }
+  .bulle_menu:active .effet {
+    transform: translate(0px);
+  }
+  .bulle_menu:active .fa-check {
+    transform: rotateZ(360deg);
+  }
+  .bulle_menu:active .bold {
+    margin-right: 40px;
+  }
+  .bulle_menu:active .etc1 {
+    padding-right: 40px;
+  }
+  .bulle_menu:active .etc2 {
+    margin-right: 40px;
   }
 }
 
@@ -415,28 +538,29 @@ htlm, body {
   margin-right: 20px;
 }
 
+/* animation bulles*/
 .animation_entrees {
-  -webkit-animation: menu 3s linear 0s forwards;
-          animation: menu 3s linear 0s forwards;
+  -webkit-animation: menu 1s ease-out 0s forwards;
+          animation: menu 1s ease-out 0s forwards;
   opacity: 0;
 }
 
 .animation_plats {
-  -webkit-animation: menu 3s linear 1s forwards;
-          animation: menu 3s linear 1s forwards;
+  -webkit-animation: menu 1s ease-out 0.2s forwards;
+          animation: menu 1s ease-out 0.2s forwards;
   opacity: 0;
 }
 
 .animation_desserts {
-  -webkit-animation: menu 3s linear 2s forwards;
-          animation: menu 3s linear 2s forwards;
+  -webkit-animation: menu 1s ease-out 0.3s forwards;
+          animation: menu 1s ease-out 0.3s forwards;
   opacity: 0;
 }
 
 @-webkit-keyframes menu {
   0% {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(25px);
   }
   100% {
     transform: translateY(0px);
@@ -447,10 +571,54 @@ htlm, body {
 @keyframes menu {
   0% {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(25px);
   }
   100% {
     transform: translateY(0px);
     opacity: 1;
   }
+}
+/*icone check*/
+.rond {
+  border-radius: 50px;
+  background-color: white;
+  height: 17px;
+  width: 17px;
+  position: absolute;
+}
+
+.fa-check {
+  background-color: white;
+  color: #99E2D0;
+  border-radius: 50%;
+  transform: rotateZ(80deg);
+  transition: all 0.8s ease-in-out;
+}
+
+/* animation block vert*/
+.effet {
+  background-color: #99E2D0;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(55px);
+  transition: all 0.8s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* rognage texte*/
+.etc1 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.etc2 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }/*# sourceMappingURL=style.css.map */
