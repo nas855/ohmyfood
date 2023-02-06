@@ -53,7 +53,7 @@ htlm,body {
 }
 
 .conteneur {
-    background-color: #eee;
+    background-color: $couleur-fond-menu;
     padding-bottom: 50px;
 }
 
@@ -85,13 +85,12 @@ htlm,body {
 
 .btn
 {
-    color: $couleur-accentuation;
+    color:$couleur-accentuation;
     padding: 10px 20px;
     border-radius: 20px;
     box-shadow: 5px 5px 5px $couleur-ombre; 
     background: $couleur-degradé;
-    @include hover
-    
+    @include hover  
 }
 
 
@@ -144,7 +143,7 @@ htlm,body {
             background-color:couleur-accentuation;
             z-index: 0;
             &:hover {
-                background-color:#ae80e538;
+                background-color:$couleur-survol-filtre;
                 @include degrade_ombre
             }
             &:hover .filtre_icone{
@@ -267,8 +266,8 @@ htlm,body {
     justify-content: flex-end;
     &_nouveau{
         position: absolute;
-        background-color: #99cccc;
-        color: #009966;
+        background-color: $couleur-fond-nouveau;
+        color: $couleur-nouveau;
         padding: 5px;
         margin-right: 10px;
     }  
@@ -300,8 +299,8 @@ htlm,body {
 
  /*chargement*/
  #loader {
-    border: 16px solid #9356DC;
-    border-top: 16px solid #FF79DA;
+    border: 16px solid $couleur-primaire;
+    border-top: 16px solid $couleur-secondaire;
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -322,7 +321,7 @@ htlm,body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
+    background-color: $couleur-accentuation;
     z-index: 9999;
     animation: disparition 3s linear forwards ; 
     
@@ -402,7 +401,7 @@ htlm,body {
 
 
 .conteneur_menu {
-    background-color: #eee;
+    background-color: $couleur-fond-menu;
     border-radius: 30px 30px 0 0;
     position: relative;
     margin-top: 180px; 
@@ -426,7 +425,7 @@ htlm,body {
     padding-top: 10px;
     padding-bottom: 10px;
     box-shadow: 2px 2px 2px 2px $couleur-ombre;
-    background-color: white;
+    background-color: $couleur-accentuation;
     width: 45%;
     margin-bottom: 10px;
     position: relative;
@@ -525,14 +524,14 @@ htlm,body {
 /*icone check*/
 .rond{
     border-radius: 50px;
-    background-color: white;
+    background-color: $couleur-accentuation;
     height: 17px;
     width: 17px;
     position: absolute;
 }
 .fa-check{
-    background-color: white;
-    color:#99E2D0;
+    background-color: $couleur-accentuation;
+    color:$couleur-tertiaire;
     border-radius: 50%;
    transform: rotateZ(80deg) ;
     transition: all 0.8s ease-in-out;
@@ -540,7 +539,7 @@ htlm,body {
 
 /* animation block vert*/
 .effet{
-    background-color: #99E2D0;
+    background-color: $couleur-tertiaire;
     width: 50px;
     position: absolute;
     top: 0;
