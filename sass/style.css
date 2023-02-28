@@ -192,6 +192,7 @@ htlm, body {
   font-weight: 200;
 }
 .conteneur_images .taille {
+  display: flex;
   font-size: 25px;
 }
 
@@ -222,10 +223,6 @@ htlm, body {
 }
 .carte_lien:hover .coeur_plein {
   opacity: 100%;
-  background: linear-gradient(to bottom, #FF79DA, #9356DC);
-  color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
 }
 @media screen and (max-width: 760px) {
   .carte_lien:hover .coeur_plein {
@@ -246,11 +243,15 @@ htlm, body {
 }
 .carte .coeur_plein {
   opacity: 0;
-  transition-property: all;
-  transition-duration: 2s;
-  transform: scale(1.2);
+  transition: all 0.8s ease-in-out;
+  transform: scale(1);
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 .carte .coeur_vide {
+  transition: all 1s ease-in-out;
   position: absolute;
   color: black;
 }
@@ -386,14 +387,15 @@ htlm, body {
 }
 
 .fleche_gauche {
-  display: none;
   position: absolute;
   left: 10px;
+  top: 25px;
 }
 @media screen and (max-width: 760px) {
   .fleche_gauche {
     display: block;
     margin-right: 60px;
+    top: 0;
   }
 }
 
@@ -418,7 +420,9 @@ htlm, body {
 }
 @media screen and (max-width: 760px) {
   .chapitre {
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 

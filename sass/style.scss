@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-
 @import "./utils/variables";
 @import "./utils/mixins";
 
@@ -16,7 +15,6 @@ htlm,body {
 
 
     .header {
-        
         margin: 10px;
         @include ecran-mobile {
             @include centre;
@@ -43,7 +41,7 @@ htlm,body {
 }
 
 .accroche{
-    background-color: #eee;
+    background-color: $couleur-fond-menu;
     padding-bottom: 20px;
     padding-top: 20px;
     display: flex;
@@ -181,6 +179,7 @@ htlm,body {
     }
         
     .taille{
+        display: flex;
         @include police-size(25px);
        
     }
@@ -209,9 +208,6 @@ htlm,body {
         }
         &:hover .coeur_plein {
             opacity:100%;
-            background: $couleur-degradé;
-            color:transparent;
-            background-clip: text;
             @include ecran-mobile{
                 opacity: 0;  
             }     
@@ -234,12 +230,15 @@ htlm,body {
 
     .coeur_plein {
         opacity:0;
-        transition-property:all;
-        transition-duration:2s;
-        transform: scale(1.2); 
+        transition:all 0.8s ease-in-out;
+        transform: scale(1); 
+        background: $couleur-degradé;
+            color:transparent;
+            background-clip: text;
     }
       
   .coeur_vide {
+    transition:all 1s ease-in-out;
     position:absolute;
     color:black;
   }
@@ -351,12 +350,14 @@ htlm,body {
     }   
 }
 .fleche_gauche{
-    display: none;
     position: absolute;
     left: 10px;
+    top: 25px;
     @include ecran-mobile{
       display: block; 
-    margin-right: 60px;}
+    margin-right: 60px;
+    top:0;}
+
 }
 
 .fa-arrow-left {
@@ -378,7 +379,9 @@ htlm,body {
     align-items:center;
     padding-top: 30px;
     @include ecran-mobile{
-        justify-content: space-evenly;
+        justify-content: space-between;
+        padding-right: 20px;
+        padding-left: 20px;;
     }
     
    
